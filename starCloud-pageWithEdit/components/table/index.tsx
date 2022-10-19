@@ -1,6 +1,5 @@
-import { ActionText } from '@fruits-chain/react-bailu'
-import { Table } from 'antd'
-import type { ColumnsType } from 'antd/lib/table'
+import type { ColumnsType } from '@fruits-chain/react-bailu'
+import { ActionText, Table } from '@fruits-chain/react-bailu'
 import type { FC } from 'react'
 import React from 'react'
 
@@ -18,7 +17,7 @@ const ListTable: FC<IProps> = props => {
     {
       title: '操作',
       dataIndex: 'action',
-      render: (_, row) => {
+      render: (value, row) => {
         return (
           <ActionText.Group>
             <ActionText
@@ -32,7 +31,9 @@ const ListTable: FC<IProps> = props => {
     },
   ]
 
-  return <Table {...tableProps} columns={columns} rowKey="id" />
+  return (
+    <Table {...tableProps} columns={columns} bordered showEmpty rowKey="id" />
+  )
 }
 
 export default ListTable
